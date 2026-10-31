@@ -9,7 +9,11 @@ let
 in
 {
   options.services.storage = {
-    enable = lib.mkEnableOption "udisks2 and wheel polkit rules for removable storage";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "udisks2 and wheel polkit rules for removable storage.";
+    };
   };
 
   config = lib.mkIf cfg.enable {
